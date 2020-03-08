@@ -18,14 +18,14 @@ abstract class SurveyDatabase:RoomDatabase (){
     private class WordDatabaseCallback: RoomDatabase.Callback() {    private var viewModelJob= Job()
         val uiScope= CoroutineScope(Dispatchers.Main+viewModelJob)
 
-
+        //OnOpen populate database
         override fun onOpen(db: SupportSQLiteDatabase) {
             super.onOpen(db)
 
             INSTANCE?.let { database ->
                 uiScope.launch {
 
-                    // Add sample words.
+                    // Add words to database
                     populateData(database.surveyDao())
 
                 }

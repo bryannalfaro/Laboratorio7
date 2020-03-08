@@ -33,9 +33,6 @@ class Principal : Fragment() {
         // Inflate the layout for this fragment
         val bindingFirst= DataBindingUtil.inflate<FragmentPrincipalBinding>(inflater,R.layout.fragment_principal,container,false)
 
-
-
-
         viewModel= ViewModelProviders.of(this).get(PrincipalViewModel::class.java)
 
         viewModel.list.observe(this, Observer {

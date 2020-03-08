@@ -31,8 +31,8 @@ class Encuesta : Fragment() {
     private lateinit var viewModelR:ResultadoViewModel
     private lateinit var bindingEncuesta: EncuestaFragmentBinding
 
-    private var ratingShow:Int=0
     var contador=0
+
     private lateinit var lista:List<PreguntaEntity>
 
 
@@ -52,10 +52,7 @@ class Encuesta : Fragment() {
         //inflate the view
         bindingEncuesta = DataBindingUtil.inflate(inflater, R.layout.encuesta_fragment, container, false)
 
-        //init the viewModel
-
-
-
+        //Init the viewModels
         viewModelR=ViewModelProviders.of(activity!!,respuestaFactory).get(ResultadoViewModel::class.java)
         viewModel = ViewModelProviders.of(activity!!,encuestaFactory).get(EncuestaViewModel::class.java)
 
@@ -63,19 +60,15 @@ class Encuesta : Fragment() {
         viewModelR.endSurvey()
 
 
-        //Init the info in the view
 
         bindingEncuesta.lifecycleOwner=viewLifecycleOwner
+        //Observe for put the questions in the view
 
         viewModel.todas.observe(this, Observer {
             lista=it
             viewModel.createEncuesta()
-            Log.i("Entrooo","Si entro")
             bindingEncuesta.preguntas.text= lista[contador].name
         })
-
-
-
 
         //next question
         bindingEncuesta.button2.setOnClickListener {
@@ -103,14 +96,6 @@ class Encuesta : Fragment() {
                     bindingEncuesta.ratingBar.visibility=View.VISIBLE
                     bindingEncuesta.editText2.visibility=View.GONE
                     bindingEncuesta.editText3.visibility=View.GONE
-
-//                    var rateValue=bindingEncuesta.ratingBar.rating
-//
-//
-//                    viewModelR.rating(rateValue)
-//                    viewModelR.establecerRespuesta(rateValue.toString())//add to the list of answers
-
-
 
                 }else if (lista.get(contador).tipoPregunta.equals("Numero")){
                     bindingEncuesta.ratingBar.visibility=View.GONE

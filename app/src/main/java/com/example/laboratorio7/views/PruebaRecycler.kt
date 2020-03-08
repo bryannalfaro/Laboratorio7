@@ -29,18 +29,19 @@ class PruebaRecycler : Fragment() {
     ): View? {
         bindin= DataBindingUtil.inflate(inflater,
             R.layout.prueba_recycler_fragment,container,false)
-        var recycler: RecyclerView
-
+        var RecyclerView: RecyclerView
+        var adaptador= Adapter(context!!)
         viewModel= ViewModelProviders.of(activity!!).get(ResultadoViewModel::class.java)
 
 
-        recycler=bindin.recycler
-        var adapter= Adapter(context!!)
-        recycler.adapter=adapter
-        recycler.layoutManager= LinearLayoutManager(context)
+        RecyclerView=bindin.recycler
 
 
-        adapter.setQuestions(viewModel.supremo)
+        RecyclerView.adapter=adaptador
+        RecyclerView.layoutManager= LinearLayoutManager(context)
+
+
+        adaptador.setQuestions(viewModel.supremo)
 
 
         return bindin.root

@@ -22,12 +22,9 @@ class EncuestaViewModel (val database: SurveyDao, application: Application): And
     var todas = database.getAllPreguntas()
 
 
-    var index=1
     val preguntas: MutableLiveData<String>
         get() = _pregunta
 
-    lateinit var preguntasList:MutableList<String>
-    var cantidad:Int = 0
 
     init {
         pregunta()
@@ -45,109 +42,6 @@ class EncuestaViewModel (val database: SurveyDao, application: Application): And
             listss=todas
         }
     }
-
-    fun addResponse(text:String,numero:Long,idPregunta:Int,idEncuesta:Int){
-        uiScope.launch {
-            var respuesta2= RespuestaEntity()
-            respuesta2.questionText=text
-            respuesta2.questionNumber=numero
-            respuesta2.questionId=idPregunta
-            respuesta2.encuestaId=idEncuesta
-
-            insertar(respuesta2)
-        }
-    }
-
-    suspend fun insertar(respuesta:RespuestaEntity){
-        withContext(Dispatchers.IO){
-            database.insertRespuesta(respuesta)
-        }
-    }
-
-
-//
-//    fun cantidad(){
-//        uiScope.launch {
-//            traer()
-//        }
-//    }
-//    suspend fun traer(){
-//        withContext(Dispatchers.IO){
-//            var cantidads = database.getCantidadPreguntas()
-//            cantidads=cantidad
-//        }
-//
-//    }
-
-
-    //    fun obtenerPregunta(){
-//        uiScope.launch {
-//            getQuestion()
-//        }
-//    }
-//    suspend fun getQuestion(){
-//
-//        withContext(Dispatchers.IO){
-//            if (database.getCantidadPreguntas()==0){
-//                _pregunta.value=""
-//
-//            }else{
-//                preguntasList= mutableListOf(database.getPregunta(1)!!.name.toString())
-//            }
-//
-//
-//        }
-//        _pregunta.value = preguntasList.removeAt(0)
-//        index++
-//        Log.i("TIEMPOOOO","$cantidad")
-//    }
-    fun crearPregunta(){
-        uiScope.launch {
-            var pregunta=PreguntaEntity()
-            pregunta.name="Como estas"
-            pregunta.tipoPregunta="Texto"
-            addPregunta(pregunta)
-        }
-
-
-    }
-
-    fun crearPregunta2(){
-        uiScope.launch {
-            var pregunta=PreguntaEntity()
-            pregunta.name="Hola"
-            pregunta.tipoPregunta="Texto"
-            addPregunta(pregunta)
-        }
-
-
-    }
-
-//    fun traerDatos(){
-//        uiScope.launch {
-//            preguntasTraer()
-//        }
-//    }
-
-//    suspend fun preguntasTraer(){
-//        withContext(Dispatchers.IO){
-//            preguntasList =database.getAllPreguntas()
-//        }
-//
-//    }
-
-//    fun agregar(){
-//        for(i in preguntasList!!){
-//            preguntasList1!!.add(i.name)
-//        }
-//    }
-//
-//    fun seleccionarPregunta(){
-//        if (preguntasList1!!.isNotEmpty()){
-//            _pregunta.value=preguntasList1!!.removeAt(0)
-//        }
-//    }
-
 
 
     fun createEncuesta(){
@@ -228,7 +122,6 @@ class EncuestaViewModel (val database: SurveyDao, application: Application): And
         }
 
     }
-
 
 
     override fun onCleared() {

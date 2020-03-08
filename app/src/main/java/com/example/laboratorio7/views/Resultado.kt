@@ -53,10 +53,10 @@ class Resultado : Fragment() {
         bindinResultado.button3.setOnClickListener {
             view!!.findNavController().navigate(R.id.action_resultado_to_principal)
 
-            viewModel.respuestas.clear()
+           // viewModel.respuestas.clear()
 
         }
-        //shows the toast
+
         bindinResultado.button4.setOnClickListener {
 
             view!!.findNavController().navigate(R.id.action_resultado_to_pruebaRecycler)

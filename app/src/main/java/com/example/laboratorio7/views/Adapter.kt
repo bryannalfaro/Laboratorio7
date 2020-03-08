@@ -8,6 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.laboratorio7.R
 
+/**
+ * Adapter for the Recycler view
+ */
 class Adapter internal constructor(context: Context): RecyclerView.Adapter<Adapter.ViewHolderData>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderData {
@@ -15,33 +18,25 @@ class Adapter internal constructor(context: Context): RecyclerView.Adapter<Adapt
         return ViewHolderData((itemView))
     }
 
-    override fun getItemCount()=questions.size
+    override fun getItemCount()=PreguntasList.size
 
     override fun onBindViewHolder(holder: ViewHolderData, position: Int) {
-        val pregunta=questions[position]
-//        var contador1=0
-//        var contador2=1
+        val pregunta=PreguntasList[position]
 
         holder.questionItenView.text=pregunta.get(0)
-//        contador1=contador1+2
-
         holder.pregunta.text=pregunta.get(1)
-//        contador2=contador2+2
-//        questions.removeAt(0)
-//        questions.removeAt(1)
-
     }
 
     internal fun setQuestions(preguntas: ArrayList<ArrayList<String>>){
-        this.questions=preguntas
+        this.PreguntasList=preguntas
 
         notifyDataSetChanged()
     }
 
     private var inflater: LayoutInflater = LayoutInflater.from(context)
-    private var questions= ArrayList<ArrayList<String>>()
-    private var surveys=0
+    private var PreguntasList= ArrayList<ArrayList<String>>()
 
+    //ViewHolder for the data
     inner class ViewHolderData(itemView: View): RecyclerView.ViewHolder(itemView){
         val questionItenView: TextView =itemView.findViewById(R.id.idPregunta)
         val pregunta: TextView =itemView.findViewById(R.id.pregunta)

@@ -93,9 +93,7 @@ class Preguntas : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                //  selecicon=spiner.getItemAtPosition(position).toString()
-                //  Toast.makeText(activity,"$selecicon",Toast.LENGTH_SHORT).show()
-                //To change body of created functions use File | Settings | File Templates.
+
             }
 
         }
