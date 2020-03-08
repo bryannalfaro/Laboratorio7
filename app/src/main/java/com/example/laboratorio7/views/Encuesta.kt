@@ -85,6 +85,8 @@ class Encuesta : Fragment() {
             contador++
             if(contador>=viewModel.todas.value!!.size){
                 viewModelR.rellenar()
+                bindingEncuesta.editText2.text.clear()
+                bindingEncuesta.editText3.text.clear()
 
                 view!!.findNavController().navigate(R.id.action_encuesta_to_resultado)
 
