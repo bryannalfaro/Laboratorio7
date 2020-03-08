@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_comp"
+    app:startDestination="@id/principal">
+
+    <fragment
+        android:id="@+id/principal"
+        android:name="com.example.laboratorio7.views.Principal"
+        android:label="Principal" >
+        <action
+            android:id="@+id/action_principal_to_preguntas"
+            app:destination="@id/preguntas" />
+        <action
+            android:id="@+id/action_principal_to_encuesta"
+            app:destination="@id/encuesta" />
+    </fragment>
+    <fragment
+        android:id="@+id/preguntas"
+        android:name="com.example.laboratorio7.views.Preguntas"
+        android:label="Preguntas" >
+        <action
+            android:id="@+id/action_preguntas_to_principal"
+            app:destination="@id/principal"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/encuesta"
+        android:name="com.example.laboratorio7.views.Encuesta"
+        android:label="encuesta_fragment"
+        tools:layout="@layout/encuesta_fragment" >
+        <action
+            android:id="@+id/action_encuesta_to_resultado"
+            app:destination="@id/resultado"
+            app:popUpTo="@+id/principal"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/about"
+        android:name="com.example.laboratorio7.views.About"
+        android:label="About" />
+    <fragment
+        android:id="@+id/resultado"
+        android:name="com.example.laboratorio7.views.Resultado"
+        android:label="resultado_fragment"
+        tools:layout="@layout/resultado_fragment" >
+        <action
+            android:id="@+id/action_resultado_to_principal"
+            app:destination="@id/principal"
+            app:popUpTo="@+id/principal"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_resultado_to_listaResultados"
+            app:destination="@id/listaResultados" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaResultados"
+        android:name="com.example.laboratorio7.views.ListaResultados"
+        android:label="ListaResultados" />
+</navigation>

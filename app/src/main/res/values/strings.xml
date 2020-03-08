@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Laboratorio7</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="iniciar_encuesta"> Iniciar encuesta</string>
+
+    <string name="app_description">Survey App es una aplicacion que te permitira evaluar la satisfaccion
+    sobre los servicios que proveemos. Podras realizar preguntas y de igual manera poder contestar
+    una diminuta encuesta para conocer tu opinion sobre nosotros. </string>
+    <string name="ingrese_su_pregunta">Ingrese su pregunta</string>
+    <string name="ingrese_comentario">Ingrese comentario</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="resultados">Resultados</string>
+    <string name="ver_resultados">Ver resultados</string>
+    <string name="nueva_encuesta">Nueva encuesta</string>
+    <string name="eliminar_encuesta">Eliminar encuesta</string>
+    <string name="eliminar_pregunta">Eliminar pregunta</string>
+    <string name="eliminar_respuesta">Eliminar respuesta</string>
+
+</resources>
