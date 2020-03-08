@@ -22,25 +22,20 @@ class ListaResultados : Fragment() {
         fun newInstance() = ListaResultados()
     }
 
-    private lateinit var viewModel: ResultadoViewModel
-    private lateinit var bindingList:ListaResultadosFragmentBinding
+    private lateinit var viewModel: ListaResultadosViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        bindingList=DataBindingUtil.inflate(inflater,R.layout.lista_resultados_fragment,container,false)
-        val application= requireNotNull(this.activity).application
-        val dataSource= SurveyDatabase.getInstance(application).surveyDao
-
-        //Factory for the list
-        val Resultados= ResultadoViewModelFactory(dataSource,application)
-        viewModel = ViewModelProviders.of(activity!!,Resultados).get(ResultadoViewModel::class.java)
-        bindingList.Texto.setText(viewModel.returnAll().toString())
-
-        return bindingList.root
+        return inflater.inflate(R.layout.lista_resultados_fragment, container, false)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
+        // TODO: Use the ViewModel
+    }
 
 }
+

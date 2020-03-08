@@ -17,5 +17,6 @@
     <string name="eliminar_encuesta">Eliminar encuesta</string>
     <string name="eliminar_pregunta">Eliminar pregunta</string>
     <string name="eliminar_respuesta">Eliminar respuesta</string>
+    <string name="ingrese_numero">Ingrese numero</string>
 
 </resources>

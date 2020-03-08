@@ -18,6 +18,8 @@ interface SurveyDao{
     @Insert
     fun createEncuesta(encuesta: EncuestaEntity)
 
+
+
     @Insert
     fun insertRespuesta(respuesta:RespuestaEntity)
 
@@ -30,8 +32,8 @@ interface SurveyDao{
     @Query("SELECT * FROM question_table ")
     fun getAllPreguntas():LiveData<List<PreguntaEntity>>
 
-    @Query("SELECT COUNT(id) FROM poll_table")
-    fun getNumberOfSurveys():Long?
+    @Query("SELECT * FROM poll_table")
+    fun getNumberOfSurveys():LiveData<List<EncuestaEntity>>
 
     @Query("DELETE FROM poll_table")
     fun clearSurveys()

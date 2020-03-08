@@ -51,11 +51,11 @@
             app:popUpTo="@+id/principal"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_resultado_to_listaResultados"
-            app:destination="@id/listaResultados" />
+            android:id="@+id/action_resultado_to_pruebaRecycler"
+            app:destination="@id/pruebaRecycler" />
     </fragment>
     <fragment
-        android:id="@+id/listaResultados"
-        android:name="com.example.laboratorio7.views.ListaResultados"
-        android:label="ListaResultados" />
+        android:id="@+id/pruebaRecycler"
+        android:name="com.example.laboratorio7.views.PruebaRecycler"
+        android:label="PruebaRecycler" />
 </navigation>
