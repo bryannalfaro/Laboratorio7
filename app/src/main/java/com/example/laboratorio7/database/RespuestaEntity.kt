@@ -19,12 +19,12 @@ data class RespuestaEntity (
     @PrimaryKey(autoGenerate = true)
     var id:Long=0L,
     @ColumnInfo(name = "pool_id",index = true)
-    var encuestaId:Long=0L,
+    var encuestaId:Int=0,
     @ColumnInfo(name = "question_id",index = true)
-    var questionId:Long=0L,
-    @ColumnInfo(name = "question_text",index = true)
-    var questionText:String,
-    @ColumnInfo(name = "question_number",index = true)
+    var questionId:Int=0,
+    @ColumnInfo(name = "question_text")
+    var questionText:String="",
+    @ColumnInfo(name = "question_number")
     var questionNumber:Long=0L
 )
 

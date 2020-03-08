@@ -18,6 +18,12 @@ interface SurveyDao{
     @Insert
     fun createEncuesta(encuesta: EncuestaEntity)
 
+    @Insert
+    fun insertRespuesta(respuesta:RespuestaEntity)
+
+    @Query("SELECT * FROM poll_table WHERE id=:key")
+    fun  getEncuesta(key:Int):EncuestaEntity?
+
     @Query("SELECT*FROM answer_table ")
     fun getAllResponses():LiveData<List<RespuestaEntity>>
 
